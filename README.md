@@ -12,5 +12,5 @@ The following picture illustrates an approach to a contract and component testin
 
 
 
-- **config-service** - a module that uses Spring Cloud Config Server for running configuration server. https://github.com/rahmasakka/ConfigLibrary
+- **config-service** - a module that uses Spring Cloud Config Server for running configuration server. https://github.com/rahmasakka/ConfigurationLibrary
 ![serverConfiguration](https://user-images.githubusercontent.com/62676613/150198370-4adf4841-1009-4358-8052-4d983d660cde.PNG)
