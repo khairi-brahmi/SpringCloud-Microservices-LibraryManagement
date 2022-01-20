@@ -1,0 +1,37 @@
+version: '3'
+services:
+  discovery:
+    image: developer.okta.com/microservice-docker-discovery:0.0.1-SNAPSHOT
+    ports:
+      - 8761:8761
+  student-service:
+    image: developer.okta.com/microservice-docker-school-service:0.0.1-SNAPSHOT
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://discovery:8761/eureka
+    depends_on:
+      - discovery
+  administration-service:
+    image: developer.okta.com/microservice-docker-administration-service:0.0.1-SNAPSHOT
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://discovery:8761/eureka
+    depends_on:
+      - discovery
+  book-service:
+    image: developer.okta.com/microservice-docker-book-service:0.0.1-SNAPSHOT
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://discovery:8761/eureka
+    depends_on:
+      - discovery
+  gateway-service:
+    image: developer.okta.com/microservice-docker-gateway-service:0.0.1-SNAPSHOT
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://discovery:8761/eureka
+    restart: on-failure
+    depends_on:
+      - discovery
+    ports:
+      - 8765:8765

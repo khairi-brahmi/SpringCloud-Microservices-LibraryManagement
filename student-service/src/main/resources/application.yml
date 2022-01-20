@@ -1,0 +1,26 @@
+server:  
+    port: 2222
+
+spring:  
+  application:
+    name: student-service
+  #data:
+    #mongodb:
+     #host: 172.0.0.1
+     #port: 27017
+      #username:  
+      #password:
+
+      
+eureka:  
+  client:
+    serviceUrl:
+      defaultZone: ${DISCOVERY_URL:http://localhost:8761}/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+      
+ribbon:
+  eureka:
+    enabled: true
+ 
